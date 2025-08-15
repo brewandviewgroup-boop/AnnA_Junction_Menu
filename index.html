@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AnnA Junction — Menu & Order</title>
+<meta name="description" content="AnnA Junction - South Indian, Pizza, Burgers, Chinese, Shakes & Mocktails. Address: D-1, G-12, GF, Krishna Apra Plaza, Commercial Belt, Alpha-1, Gr. Noida" />
+<style>
+  :root{
+    --green:#0b6b3a;
+    --accent:#f7c948;
+    --bg:#f7f9f7;
+    --card:#ffffff;
+    --muted:#6b6b6b;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Arial;
+    background:linear-gradient(180deg, #eaf3ea 0%, var(--bg) 100%);
+    color:#1b1b1b;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{
+    max-width:var(--maxw);
+    margin:22px auto;
+    padding:20px;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:18px;
+    text-align:center;
+  }
+  .logo img{
+    width:200px;
+    height:auto;
+    display:block;
+  }
+  h1{
+    margin:0;
+    font-size:42px;
+  }
+  .tagline{
+    color:var(--muted);
+    font-size:18px;
+    margin-top:4px;
+  }
+  .contact{
+    font-size:15px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  .contact b{
+    color:var(--green);
+  }
+  .hero-card{
+    background:var(--card);
+    padding:18px;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(10,20,10,0.04);
+    margin-bottom:18px;
+  }
+  .filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:12px 0 18px 0;
+  }
+  .btn{
+    border:none;
+    background:transparent;
+    padding:8px 12px;
+    border-radius:999px;
+    cursor:pointer;
+    color:var(--green);
+    font-weight:600;
+    box-shadow:inset 0 0 0 1px rgba(11,107,58,0.12);
+  }
+  .btn.active{
+    background:var(--green);
+    color:#fff;
+    box-shadow:none;
+  }
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .menu-section{
+    background:var(--card);
+    padding:14px;
+    border-radius:10px;
+  }
+  .menu-section h2{
+    margin:0 0 8px 0;
+    font-size:16px;
+    color:var(--green);
+  }
+  .item{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px dashed #eee;
+    font-size:14px;
+  }
+  .item:last-child{border-bottom:none}
+  .item .name{font-weight:600}
+  .price{color:var(--muted)}
+  @media (max-width:920px){
+    .menu-grid{grid-template-columns:1fr}
+    header{flex-direction:column}
+  }
+  footer{
+    margin-top:22px;
+    padding:12px;
+    background:transparent;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+  }
+  .chip{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#f1fff4;
+    color:var(--green);
+    font-weight:600;
+    font-size:13px
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="AnnA Junction Logo">
+    </div>
+    <div>
+      <h1>AnnA Junction</h1>
+      <div class="tagline">South Indian | Pizza | Burgers | Chinese | Shakes</div>
+      <div class="contact">
+        Call now: <b>+91 8851005686</b><br/>
+        <span style="font-size:13px">0120-4978585</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero-card">
+    <div class="chip">Open • Delivery Available</div>
+    <h2 style="margin:12px 0 6px 0">Welcome to AnnA Junction</h2>
+    <p style="color:var(--muted);margin:0 0 12px 0">
+      Delicious South Indian classics, wood-fired pizzas, burgers, Chinese delicacies, and refreshing shakes & mocktails. Fresh ingredients, friendly service.
+    </p>
+    <div class="filters" id="filters">
+      <button class="btn active" data-cat="all">All</button>
+      <button class="btn" data-cat="south">South Indian</button>
+      <button class="btn" data-cat="pizza">Italian Pizza</button>
+      <button class="btn" data-cat="pasta">Pasta</button>
+      <button class="btn" data-cat="wrap">Wrap</button>
+      <button class="btn" data-cat="sandwich">Sandwich</button>
+      <button class="btn" data-cat="burger">Burger</button>
+      <button class="btn" data-cat="chinese">Chinese</button>
+      <button class="btn" data-cat="snack">Snack</button>
+      <button class="btn" data-cat="shake">Shake</button>
+      <button class="btn" data-cat="mocktail">Mocktail</button>
+    </div>
+    <p style="margin:10px 0 0 0;color:var(--muted);font-size:13px">
+      Tip: Click any category to filter the menu.
+    </p>
+    <div style="margin-top:12px">
+      <a href="https://www.zomato.com/ncr/anna-junction-1-alpha-1-greater-noida" target="_blank" style="display:inline-block;background:var(--green);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none">Order on Zomato</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="menu-grid" id="menuGrid">
+
+      <!-- South Indian -->
+      <section class="menu-section" data-cat="south">
+        <h2>South Indian</h2>
+        <div class="item"><div class="name">Idli Sambar</div><div class="price">80/-</div></div>
+        <div class="item"><div class="name">Vada Sambar</div><div class="price">80/-</div></div>
+        <div class="item"><div class="name">Plain Dosa</div><div class="price">80/-</div></div>
+        <div class="item"><div class="name">Masala Dosa</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Butter Masala Dosa</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Paneer Masala Dosa</div><div class="price">130/-</div></div>
+        <div class="item"><div class="name">Rava Masala Dosa</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Onion Tomato Uttapam</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Mix Veg Uttapam</div><div class="price">140/-</div></div>
+        <div class="item"><div class="name">Paneer Uttapam</div><div class="price">130/-</div></div>
+      </section>
+
+      <!-- Pizza -->
+      <section class="menu-section" data-cat="pizza">
+        <h2>Italian Pizza</h2>
+        <div class="item"><div class="name">Classic Margherita</div><div class="price">149/-</div></div>
+        <div class="item"><div class="name">Veggie Delight Pizza</div><div class="price">179/-</div></div>
+        <div class="item"><div class="name">Cheese Corn Pizza</div><div class="price">199/-</div></div>
+        <div class="item"><div class="name">Maxican Paneer Pizza</div><div class="price">199/-</div></div>
+        <div class="item"><div class="name">Signature Paneer Pizza</div><div class="price">210/-</div></div>
+      </section>
+
+      <!-- Pasta -->
+      <section class="menu-section" data-cat="pasta">
+        <h2>Pasta</h2>
+        <div class="item"><div class="name">Alfredo Pasta / White Sauce</div><div class="price">119/-</div></div>
+        <div class="item"><div class="name">Arrabiata Pasta / Red Sauce</div><div class="price">149/-</div></div>
+      </section>
+
+      <!-- Wrap -->
+      <section class="menu-section" data-cat="wrap">
+        <h2>Wrap</h2>
+        <div class="item"><div class="name">Cheese Paneer Wrap</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Spicy Paneer Wrap</div><div class="price">119/-</div></div>
+        <div class="item"><div class="name">Veg Mushroom Wrap</div><div class="price">119/-</div></div>
+      </section>
+
+      <!-- Sandwich -->
+      <section class="menu-section" data-cat="sandwich">
+        <h2>Sandwich</h2>
+        <div class="item"><div class="name">Veg Grilled Sandwich</div><div class="price">70/-</div></div>
+        <div class="item"><div class="name">Spicy Paneer Sandwich</div><div class="price">119/-</div></div>
+        <div class="item"><div class="name">Sweet Corn Sandwich</div><div class="price">99/-</div></div>
+      </section>
+
+      <!-- Burger -->
+      <section class="menu-section" data-cat="burger">
+        <h2>Burgers & Combos</h2>
+        <div class="item"><div class="name">Aloo Tikki Burger</div><div class="price">80/-</div></div>
+        <div class="item"><div class="name">Vegetable Burger</div><div class="price">90/-</div></div>
+        <div class="item"><div class="name">Paneer Burger</div><div class="price">110/-</div></div>
+        <div class="item"><div class="name">Burger + Fries + Soft Drink (Combo)</div><div class="price">199/-</div></div>
+      </section>
+
+      <!-- Chinese -->
+      <section class="menu-section" data-cat="chinese">
+        <h2>Chinese</h2>
+        <div class="item"><div class="name">Veg Noodle</div><div class="price">80/-</div></div>
+        <div class="item"><div class="name">Garlic Noodle</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Veg Momo (10 pcs)</div><div class="price">90/-</div></div>
+        <div class="item"><div class="name">Paneer Momo (10 pcs)</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Schezwan Noodle</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Dry Manchurian</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Chilli Mushroom</div><div class="price">120/-</div></div>
+        <div class="item"><div class="name">Honey Chilli Potato</div><div class="price">100/-</div></div>
+      </section>
+
+      <!-- Snacks -->
+      <section class="menu-section" data-cat="snack">
+        <h2>Snacks</h2>
+        <div class="item"><div class="name">French Fries (Plain)</div><div class="price">89/-</div></div>
+        <div class="item"><div class="name">Peri Peri French Fries</div><div class="price">99/-</div></div>
+      </section>
+
+      <!-- Shakes -->
+      <section class="menu-section" data-cat="shake">
+        <h2>Shakes</h2>
+        <div class="item"><div class="name">Vanilla Shake</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Cold Coffee</div><div class="price">90/-</div></div>
+        <div class="item"><div class="name">Blueberry Shake</div><div class="price">129/-</div></div>
+        <div class="item"><div class="name">Cold Coffee with Ice Cream</div><div class="price">110/-</div></div>
+        <div class="item"><div class="name">Chocolate Shake</div><div class="price">119/-</div></div>
+        <div class="item"><div class="name">Coffee Hazelnut</div><div class="price">129/-</div></div>
+        <div class="item"><div class="name">Chocolate Shake with Ice Cream</div><div class="price">149/-</div></div>
+        <div class="item"><div class="name">Coffee Hazelnut with Ice Cream</div><div class="price">139/-</div></div>
+      </section>
+
+      <!-- Mocktails -->
+      <section class="menu-section" data-cat="mocktail">
+        <h2>Mocktails</h2>
+        <div class="item"><div class="name">Virgin Mojito</div><div class="price">89/-</div></div>
+        <div class="item"><div class="name">Masala Lemonade</div><div class="price">89/-</div></div>
+        <div class="item"><div class="name">Blue Lagoon</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Cucumber Mint Mojito</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Pineapple Mojito</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Green Apple Mojito</div><div class="price">99/-</div></div>
+        <div class="item"><div class="name">Yuzu Mojito</div><div class="price">99/-</div></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> AnnA Junction — <span style="color:var(--muted)">D-1, G-12, GF, Krishna Apra Plaza, Alpha-1, Greater Noida</span>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const buttons = document.querySelectorAll('.filters .btn');
+  const sections = document.querySelectorAll('.menu-section');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      sections.forEach(s=>{
+        if(cat === 'all') s.style.display = '';
+        else s.style.display = (s.dataset.cat === cat) ? '' : 'none';
+      });
+      document.getElementById('menuGrid').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+</body>
+</html>
